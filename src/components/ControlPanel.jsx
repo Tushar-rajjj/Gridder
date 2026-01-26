@@ -10,7 +10,7 @@ function ControlPanel() {
   };
 
   return (
-    <div className="ControlPanel w-full h-28 pt-5 flex items-center justify-center">
+    <div className="ControlPanel w-full h-28 pt-5 relative z-10 flex items-center justify-center">
       <div className="w-[40%] h-full p-3 rounded-2xl bg-white/99 shadow-[0_0_40px_#BFC0DE] flex items-center justify-center text-white text-xl font-normal">
         <div className="w-full h-full py-2 gap-5 bg-[#F1F1F1] rounded-3xl flex items-center justify-center text-[#676767]">
           <Link to="/Gridder">

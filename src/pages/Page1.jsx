@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Upload from "../components/Upload";
 import Dashboard from "../components/Dashboard";
 import Preview from "../components/Preview";
@@ -13,23 +13,21 @@ function Page1() {
   const [format, setFormat] = useState("A4");
   const [gridType, setGridType] = useState("Custom");
   const [lineWidth, setLineWidth] = useState(5);
+  const [canvasWidth, setCanvasWidth] = useState(null);
+  const [canvasHeight, setCanvasHeight] = useState(null);
 
   function handleSelection(e, Type) {
     const buttons = document.querySelectorAll("button");
     buttons.forEach((btn) => {
       btn.classList.remove("addh5css");
     });
-    // console.log(buttons)
+    
     e.target.classList.add("addh5css");
     setUploadType(Type);
   }
 
-  useEffect(() => {
-    console.log(uploadType);
-  }, [uploadType]);
-
   return (
-    <div className="w-full h-full p-5 flex flex-col items-center overflow-hidden justify-start gap-6">
+    <div className="w-full h-full p-5 flex flex-col items-center  overflow-x-hidden justify-start gap-6">
       <h2
         className={`text-[#878ae6] ${img === null ? "flex" : "hidden"} text-center font-semibold text-5xl`}
       >
@@ -57,9 +55,9 @@ function Page1() {
           </button>
         </div>
         {uploadType === "File" ? (
-          <Upload type="File" img={img} setImg={setImg} />
+          <Upload type="File" setImg={setImg} />
         ) : (
-          <Upload type="Link" img={img} setImg={setImg} />
+          <Upload type="Link" setImg={setImg} />
         )}
       </div>
       {img !== null && (
@@ -74,6 +72,10 @@ function Page1() {
             setFormat={setFormat}
             setGridType={setGridType}
             setLineWidth={setLineWidth}
+            setCanvasHeight={setCanvasHeight}
+            setCanvasWidth={setCanvasWidth}
+            img={img}
+            setImg={setImg}
           />
           <Preview
             img={img}
@@ -84,6 +86,8 @@ function Page1() {
             format={format}
             gridType={gridType}
             lineWidth={lineWidth}
+            canvasHeight={canvasHeight}
+            canvasWidth={canvasWidth}
           />
         </div>
       )}

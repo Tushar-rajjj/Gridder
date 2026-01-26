@@ -8,12 +8,8 @@ import Blog from "./pages/Blog";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-
   return (
     <>
-      {/* <Routes>
-        <Route path="*" element={<NotFound />} />
-      </Routes> */}
       <div className="page1 w-screen h-screen flex flex-col items-center justify-start">
         <ControlPanel />
         <Routes>
@@ -21,6 +17,7 @@ function App() {
           <Route path="/Gridder/ArtWorks" element={<ArtWorks />} />
           <Route path="/Gridder/Contact" element={<Contact />} />
           <Route path="/Gridder/Blog" element={<Blog />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </>

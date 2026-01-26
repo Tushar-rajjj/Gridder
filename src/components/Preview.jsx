@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 function Preview(props) {
   const [blackWhite, setBlackWhite] = useState(false);
-  const [gridSize, setGridSize] = useState(10);
+  const [gridSize, setGridSize] = useState(30);
   const [stepX, setStepX] = useState(0);
   const [stepY, setStepY] = useState(0);
 
@@ -14,8 +14,12 @@ function Preview(props) {
     const canvas = canvasRef.current;
     const link = document.createElement("a");
     link.download = "gridder-image.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+    try {
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    } catch (e) {
+      alert("Download blocked: Image source does not allow export.");
+    }
   };
 
   useEffect(() => {
@@ -24,6 +28,7 @@ function Preview(props) {
 
     const img = new Image();
     img.src = props.img;
+    img.style = `object-fit: cover; object-position: center;`;
     img.alt = "Uploaded Image";
 
     img.onload = function () {
@@ -35,18 +40,14 @@ function Preview(props) {
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       drawGrid(ctx, canvas.width, canvas.height, gridSize);
     };
-  }, [gridSize, props, blackWhite]);
+  }, [gridSize, props, blackWhite, props.canvasHeight, props.canvasWidth]);
 
   const drawGrid = (ctx, width, height, gridSize) => {
     setStepX(props.columns ? width / props.columns : width / gridSize);
     setStepY(props.rows ? height / props.rows : height / gridSize);
 
-    // setStepX(width / gridSize);
-    // setStepY(height / gridSize);
-
     ctx.strokeStyle = `${props.color}`;
     ctx.filter = `opacity(${props.opacity / 10})`;
-    console.log(`opacity(${props.opacity / 10})`);
     ctx.lineWidth = `${props.lineWidth}`;
 
     // Vertical lines
@@ -86,7 +87,7 @@ function Preview(props) {
           Download
         </button>
       </div>
-      <div className="p-2 px-5 flex justify-start items-center">
+      <div className="w-full h-full p-2 px-5 flex justify-start items-center overflow-hidden">
         <canvas ref={canvasRef} className="max-w-full max-h-full" id="canvas">
           Preview Canvas
         </canvas>

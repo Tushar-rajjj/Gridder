@@ -2,7 +2,9 @@ import { useState } from "react";
 
 function Upload(props) {
   const [file, setFile] = useState(null);
-  props.setImg(file);
+  if (file !== null){
+    props.setImg(file);
+  }
   const handleUpload = (e, Type) => {
     if (Type === "File") {
       console.log(Type);
@@ -33,7 +35,7 @@ function Upload(props) {
             <input
               id="Url"
               type="text"
-              placeholder="Enter URL"
+              placeholder="Paste URL"
               className="w-auto min-w-100 h-full border-2 border-gray-300 rounded-lg text-lg text-center px-2 py-3 hover:border-gray-500 transition"
               onChange={(e) => {
                 handleUpload(e, "Link");
