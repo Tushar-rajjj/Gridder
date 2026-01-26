@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 
@@ -9,6 +9,14 @@ function Preview(props) {
   const [stepY, setStepY] = useState(0);
 
   const canvasRef = useRef(null);
+  const downloadRef = useRef(null);
+  const handleDownload = () => {
+    const canvas = canvasRef.current;
+    const link = document.createElement("a");
+    link.download = "gridder-image.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  };
 
   useEffect(() => {
     let canvas = canvasRef.current;
@@ -16,6 +24,7 @@ function Preview(props) {
 
     const img = new Image();
     img.src = props.img;
+    img.alt = "Uploaded Image";
 
     img.onload = function () {
       canvas.width = img.width;
@@ -36,8 +45,8 @@ function Preview(props) {
     // setStepY(height / gridSize);
 
     ctx.strokeStyle = `${props.color}`;
-    ctx.filter = `opacity(${props.opacity/10})`;
-    console.log(`opacity(${props.opacity/10})`)
+    ctx.filter = `opacity(${props.opacity / 10})`;
+    console.log(`opacity(${props.opacity / 10})`);
     ctx.lineWidth = `${props.lineWidth}`;
 
     // Vertical lines
@@ -68,7 +77,10 @@ function Preview(props) {
           {blackWhite === true ? "Normal" : "Black & White"}
         </button>
         <button
-          onClick={() => {}}
+          ref={downloadRef}
+          onClick={() => {
+            handleDownload();
+          }}
           className="w-auto h-10 px-4 cursor-pointer bg-[#a8aae0] text-lg rounded-xl"
         >
           Download

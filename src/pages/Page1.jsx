@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Upload from "./Upload";
-import Dashboard from "./Dashboard";
-import Preview from "./Preview";
+import { useState, useEffect } from "react";
+import Upload from "../components/Upload";
+import Dashboard from "../components/Dashboard";
+import Preview from "../components/Preview";
 
-function Page1Container() {
+function Page1() {
   const [uploadType, setUploadType] = useState("File");
-
   const [img, setImg] = useState(null);
   const [color, setColor] = useState("#000000");
   const [opacity, setOpacity] = useState(1);
@@ -63,31 +62,33 @@ function Page1Container() {
           <Upload type="Link" img={img} setImg={setImg} />
         )}
       </div>
-      <div
-        className={`w-full h-full ${img !== null ? "flex" : "hidden"} justify-center items-center gap-2 mt-5`}
-      >
-        <Dashboard
-          setColor={setColor}
-          setOpacity={setOpacity}
-          setRows={setRows}
-          setColumns={setColumns}
-          setFormat={setFormat}
-          setGridType={setGridType}
-          setLineWidth={setLineWidth}
-        />
-        <Preview
-          img={img}
-          color={color}
-          opacity={opacity}
-          rows={rows}
-          columns={columns}
-          format={format}
-          gridType={gridType}
-          lineWidth={lineWidth}
-        />
-      </div>
+      {img !== null && (
+        <div
+          className={`w-full h-full flex justify-center items-center gap-2 mt-5`}
+        >
+          <Dashboard
+            setColor={setColor}
+            setOpacity={setOpacity}
+            setRows={setRows}
+            setColumns={setColumns}
+            setFormat={setFormat}
+            setGridType={setGridType}
+            setLineWidth={setLineWidth}
+          />
+          <Preview
+            img={img}
+            color={color}
+            opacity={opacity}
+            rows={rows}
+            columns={columns}
+            format={format}
+            gridType={gridType}
+            lineWidth={lineWidth}
+          />
+        </div>
+      )}
     </div>
   );
 }
 
-export default Page1Container;
+export default Page1;
