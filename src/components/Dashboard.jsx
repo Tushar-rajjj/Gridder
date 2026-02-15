@@ -21,9 +21,9 @@ function Dashboard(props) {
   }, [format]);
 
   return (
-    <div className="w-[30%] h-full rounded-2xl bg-[#FDFDFD] flex flex-col justify-start items-start p-5">
+    <div className="w-full sm:w-[30%] h-auto rounded-2xl bg-[#FDFDFD] flex flex-col justify-start items-start p-5">
       <h4 className="text-xl">Setting</h4>
-      <div className="w-full h-fit flex flex-col gap-2 mt-4">
+      <div className="w-full h-auto flex flex-col gap-2 mt-4">
         <label>Grid Type</label>
         <button className="w-full h-fit rounded-2xl cursor-pointer text-lg py-1 bg-[#a8aae0]">
           Custom

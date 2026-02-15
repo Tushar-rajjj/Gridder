@@ -21,20 +21,20 @@ function Page1() {
     buttons.forEach((btn) => {
       btn.classList.remove("addh5css");
     });
-    
+
     e.target.classList.add("addh5css");
     setUploadType(Type);
   }
 
   return (
-    <div className="w-full h-full p-5 flex flex-col items-center  overflow-x-hidden justify-start gap-6">
+    <div className="main w-full h-full p-3 md:p-0 flex flex-col items-center  overflow-x-hidden justify-start gap-6">
       <h2
         className={`text-[#878ae6] ${img === null ? "flex" : "hidden"} text-center font-semibold text-5xl`}
       >
         Free Online Grid Maker for Artists
       </h2>
       <div
-        className={`w-full h-full ${img === null ? "flex" : "hidden"} flex-col pt-2 items-center justify-start gap-4 bg-white/99 rounded-3xl shadow-[0_0_40px_#BFC0DE]`}
+        className={`w-full h-full ${img === null ? "flex" : "hidden"} flex-col pt-22 items-center justify-start gap-4 bg-white/99 rounded-3xl shadow-[0_0_40px_#BFC0DE]`}
       >
         <div className="w-fit h-fit p-3 flex items-center justify-center gap-4 bg-white/99 rounded-3xl shadow-[0_0_40px_#BFC0DE]">
           <button
@@ -62,7 +62,7 @@ function Page1() {
       </div>
       {img !== null && (
         <div
-          className={`w-full h-full flex justify-center items-center gap-2 mt-5`}
+          className={`w-full h-auto flex flex-col sm:flex-row justify-center items-center gap-2 mt-10 sm:mt-5`}
         >
           <Dashboard
             setColor={setColor}

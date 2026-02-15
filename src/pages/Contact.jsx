@@ -6,10 +6,10 @@ import ContactCard from "../components/ContactCard";
 
 export default function Contact() {
   return (
-    <div className="w-full h-full flex items-start justify-center px-4 py-20">
+    <div className="contact w-full h-auto flex items-start justify-center px-4 py-20">
       <div className="w-full max-w-4xl bg-white rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.08)] p-10">
         {/* Heading */}
-        <h1 className="text-5xl font-semibold text-center text-[#878ae6]">
+        <h1 className="text-3xl md:text-5xl font-semibold text-center text-[#878ae6]">
           Get in Touch
         </h1>
         <p className="text-center text-gray-500 mt-4 mb-14">
@@ -17,7 +17,7 @@ export default function Contact() {
         </p>
 
         {/* Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 wrap-anywhere">
           {/* Email */}
           <ContactCard
             icon={<SiGmail />}

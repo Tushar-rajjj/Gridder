@@ -68,7 +68,7 @@ function Preview(props) {
   };
 
   return (
-    <div className="w-[40%] h-full max-h-full rounded-2xl flex flex-col justify-start items-start gap-5 p-5 bg-[#FDFDFD]">
+    <div className="w-full sm:w-[40%] h-auto rounded-2xl flex flex-col justify-start items-start gap-5 p-5 bg-[#FDFDFD]">
       <h4 className="text-xl">Preview</h4>
       <div className="w-full h-fit flex justify-around items-center">
         <button

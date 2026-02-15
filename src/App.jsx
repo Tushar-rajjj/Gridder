@@ -10,7 +10,7 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="page1 w-screen h-screen flex flex-col items-center justify-start">
+      <div className="main w-screen overflow-x-hidden h-screen flex flex-col items-center justify-start">
         <ControlPanel />
         <Routes>
           <Route path="/Gridder" element={<Page1 />} />

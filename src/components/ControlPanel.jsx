@@ -11,14 +11,14 @@ function ControlPanel() {
 
   return (
     <div className="ControlPanel w-full h-28 pt-5 relative z-10 flex items-center justify-center">
-      <div className="w-[40%] h-full p-3 rounded-2xl bg-white/99 shadow-[0_0_40px_#BFC0DE] flex items-center justify-center text-white text-xl font-normal">
-        <div className="w-full h-full py-2 gap-5 bg-[#F1F1F1] rounded-3xl flex items-center justify-center text-[#676767]">
+      <div className="w-90 md:w-140 h-full p-3 rounded-2xl bg-white/99 shadow-[0_0_40px_#BFC0DE] flex items-center justify-center text-white text-sm md:text-xl font-normal">
+        <div className="w-full overflow-hidden h-full py-2 gap-1 md:gap-5 bg-[#F1F1F1] rounded-3xl flex items-center justify-center text-[#676767]">
           <Link to="/Gridder">
             <h5
               onClick={(e) => {
                 addStyle(e);
               }}
-              className="w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center addh5css"
+              className="w-19 md:w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center addh5css"
             >
               Gridder
             </h5>
@@ -28,7 +28,7 @@ function ControlPanel() {
               onClick={(e) => {
                 addStyle(e);
               }}
-              className="w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center"
+              className="w-19 md:w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center"
             >
               ArtWorks
             </h5>
@@ -38,7 +38,7 @@ function ControlPanel() {
               onClick={(e) => {
                 addStyle(e);
               }}
-              className="w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center"
+              className="w-19 md:w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center"
             >
               Contact
             </h5>
@@ -48,7 +48,7 @@ function ControlPanel() {
               onClick={(e) => {
                 addStyle(e);
               }}
-              className="w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center"
+              className="w-19 md:w-29 py-2 cursor-pointer h-full rounded-2xl flex items-center justify-center"
             >
               Blog
             </h5>

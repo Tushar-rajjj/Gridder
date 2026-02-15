@@ -17,7 +17,12 @@ body {
     box-shadow: 0 0 10px #BFC0DE;
     font-weight: 600;
 }
-
+@media (min-width: 300px) {
+    .artwork-card-parent {
+        columns: 1 250px;
+    }
+    
+}
 .artwork-card-parent {
     width: 100%;
     overflow-y: scroll;
@@ -29,6 +34,7 @@ body {
     overflow-x: hidden;
     position: relative;
 }
+
 
 .artwork-card {
     width: 100%;
@@ -45,6 +51,6 @@ body {
     border-radius: 15px;
 }
 
-.artwork-card-parent::-webkit-scrollbar {
-    width: 8px;
+.artwork-card-parent::-webkit-scrollbar ,.main::-webkit-scrollbar{
+    width: 0px;
 }
